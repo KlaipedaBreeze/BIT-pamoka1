@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace BigCarStore
@@ -29,18 +30,14 @@ namespace BigCarStore
                 //paleidciam atitinkama meniu pasirinkima
                 switch (pasirinkimas)
                 {
-                    case 1:
-                        PrekesIvedimas();
-                        break;
-                    case 2:
-                        // Kitas meniu;
-                        break;
-
+                    case 1: PrekesIvedimas(); break;
+                    case 2: /* Kitas meniu;  */ break;
+                    case 5: PrekiuKatalogas(); break;
                     default:
                         break;
                 }
-             // Jei 9 baigiame meniu cikla
-            } while (pasirinkimas != 9);            
+                // Jei 9 baigiame meniu cikla
+            } while (pasirinkimas != 9);
         }
 
         private int MainMenu()
@@ -72,6 +69,25 @@ namespace BigCarStore
             };
 
             PrekiuOperacijos.PrekesPirkimas(naujaPreke);
+        }
+
+        private void PrekiuKatalogas()
+        {
+            Console.WriteLine("-------Prekiu Katalogas----------");
+            foreach (var preke in PrekiuOperacijos.PrekiuKatalogas())
+            {
+
+                var pType = preke.GetType();
+                var props = pType.GetProperties();
+                foreach (PropertyInfo prp in props)
+                {
+                    string propertyName = prp.Name;
+                    string propertyValue = prp.GetValue(preke, new object[] { }).ToString();
+                    Console.Write(propertyName + ": " + propertyValue + ";  ");
+                }
+                Console.WriteLine();
+            }
+
         }
 
     }

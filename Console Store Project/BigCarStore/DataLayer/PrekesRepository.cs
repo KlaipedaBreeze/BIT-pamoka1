@@ -16,6 +16,10 @@ namespace BigCarStore
             _prekes.Add(preke);
         }
 
+        public static List<Preke> GetPrekesKatalogas(){
+
+            return _prekes;
+        }
 
 
     }

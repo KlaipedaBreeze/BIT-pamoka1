@@ -4,7 +4,8 @@ using System.Text;
 
 namespace BigCarStore.DataLayer
 {
-    class ImonesRepository
+    public class ImonesRepository
     {
+
     }
 }
