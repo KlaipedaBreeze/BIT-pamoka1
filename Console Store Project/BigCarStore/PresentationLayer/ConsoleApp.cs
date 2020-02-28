@@ -19,17 +19,32 @@ namespace BigCarStore
 
         public void Start()
         {
-            //Pateikiam vartotojui pagrindinis meniu
-            var pasirinkimas = MainMenu();
-            //paleidciam atitinkama meniu pasirinkima
-            //griztame atgal i meniu.
+
+            int pasirinkimas;
+            do
+            {
+                //Pateikiam vartotojui pagrindinis meniu
+                pasirinkimas = MainMenu();
+
+                //paleidciam atitinkama meniu pasirinkima
+                switch (pasirinkimas)
+                {
+                    case 1:
+                        PrekesIvedimas();
+                        break;
+                    case 2:
+                        // Kitas meniu;
+                        break;
+
+                    default:
+                        break;
+                }
+             // Jei 9 baigiame meniu cikla
+            } while (pasirinkimas != 9);            
         }
 
         private int MainMenu()
         {
-            
-
-            string vartotojoIvestis = "";
             int pasirinkimas;
             do
             {
@@ -37,14 +52,15 @@ namespace BigCarStore
                 Console.WriteLine("2 - Prekes pirkimas");
                 Console.WriteLine("3 - Prekes pardavimas");
                 Console.WriteLine("4 - Prekes paieska");
+                Console.WriteLine("5 - Prekiu katalogas");
+                Console.WriteLine("6 - Sandelio likutis");
                 Console.WriteLine("9 - Isejimas is programos");
 
-                vartotojoIvestis = Console.ReadLine(); 
-
-            } while (!int.TryParse(vartotojoIvestis, out pasirinkimas));
+            } while (!int.TryParse(Console.ReadLine(), out pasirinkimas));
             return pasirinkimas;
         }
-        private void PrekesPirkimas()
+
+        private void PrekesIvedimas()
         {
             Console.WriteLine("Iveskite prekes duomenis");
             Console.WriteLine("Iveskite Pavadima");
