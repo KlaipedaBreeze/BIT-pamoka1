@@ -9,7 +9,7 @@ namespace BigCarStore
         public static void PrekesPirkimas(Preke naujaPreke)
         {
             //issaugome duomenu bazeje
-            naujaPreke.UnikalusNumeris = Guid.NewGuid();
+            naujaPreke.UnikalusNumeris = Guid.NewGuid().ToString();
             PrekesRepository.IdetiNauja(naujaPreke);
 
         }
@@ -20,5 +20,12 @@ namespace BigCarStore
             return PrekesRepository.GetPrekesKatalogas();
         }
 
+        public static List<Preke> PrekiuPaieska(string kriterijus)
+        {
+            var pagalPavadinima = PrekesRepository.PaieskaPagalPavadinima(kriterijus);
+            var pagalNumeri = PrekesRepository.PaieskaPagalUnikaluNr(kriterijus);
+            pagalPavadinima.AddRange(pagalNumeri);
+            return pagalPavadinima;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BigCarStore
@@ -46,7 +47,7 @@ namespace BigCarStore
 
         public static void IdetiNauja(Preke preke)
         {
-            if (_prekes.Exists(x => x.UnikalusNumeris == preke.UnikalusNumeris))
+            if (_prekes.Exists(x => x.UnikalusNumeris.Equals(preke.UnikalusNumeris)))
             {
                 throw new Exception("Tokia preke siuo numeriu jau egzistuoja");
             }
@@ -61,6 +62,15 @@ namespace BigCarStore
             return _prekes;
         }
 
+        public static List<Preke> PaieskaPagalPavadinima(string kriterijus)
+        {
+            return _prekes.Where(x => x.Pavadimas.ToUpper().Contains(kriterijus.ToUpper())).ToList();
+        }
+
+        public static List<Preke> PaieskaPagalUnikaluNr(string kriterijus)
+        {
+            return _prekes.Where(x => x.UnikalusNumeris.ToUpper().Contains(kriterijus.ToUpper())).ToList();
+        }
 
     }
 }

@@ -32,6 +32,7 @@ namespace BigCarStore
                 {
                     case 1: PrekesIvedimas(); break;
                     case 2: /* Kitas meniu;  */ break;
+                    case 4: PrekesPaieska(); break;
                     case 5: PrekiuKatalogas(); break;
                     default:
                         break;
@@ -71,6 +72,36 @@ namespace BigCarStore
             PrekiuOperacijos.PrekesPirkimas(naujaPreke);
         }
 
+        #region prekes paieska
+
+        private void PrekesPaieska()
+        {
+        Console.WriteLine("Iveskite zodi paieskai: ");
+            var kriterijus=Console.ReadLine();
+            var rezultatas = PrekiuOperacijos.PrekiuPaieska(kriterijus);
+            if (rezultatas.Count==0)
+            {
+                Console.WriteLine("Nieko nerasta");
+                return;
+            }
+            foreach (var preke in rezultatas)
+            { 
+                var pType = preke.GetType();
+                var props = pType.GetProperties();
+                foreach (PropertyInfo prp in props)
+                {
+                    string propertyName = prp.Name;
+                    string propertyValue = prp.GetValue(preke, new object[] { }).ToString();
+                    Console.Write(propertyName + ": " + propertyValue + ";  ");
+                }
+                Console.WriteLine();
+
+            }
+        }
+
+        #endregion
+
+
         private void PrekiuKatalogas()
         {
             Console.WriteLine("-------Prekiu Katalogas----------");
@@ -89,6 +120,8 @@ namespace BigCarStore
             }
 
         }
+
+       
 
     }
 }

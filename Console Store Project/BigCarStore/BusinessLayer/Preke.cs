@@ -7,7 +7,7 @@ namespace BigCarStore
     public class Preke
     {
         public string Pavadimas { get; set; }
-        public Guid UnikalusNumeris { get; set; }
+        public string UnikalusNumeris { get; set; }
         public PrekesTipasEnum PrekesTipas { get; set; }
         public int PirkimoKaina { get; set; }
         public int PardavimoKaina { get; set; }
