@@ -6,6 +6,8 @@ namespace BigCarStore
 {
     public enum PrekesTipasEnum
     {
+        
+        NeraTipo = 0,
         TransportoPriemone = 1,
         Maisto = 2
     }
