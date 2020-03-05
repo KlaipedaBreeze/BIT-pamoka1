@@ -22,7 +22,7 @@ namespace BigCarStore
                 {
                     prekes = failoSaugojimoPrietaisas.DeSerializeObject<List<Preke>>(_fileName);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     prekes = new List<Preke>();
                 }

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ArrayOfPreke xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Preke>
+    <Pavadimas>555</Pavadimas>
+    <UnikalusNumeris>87261af2-91e7-45f5-8b1e-c98d3a36995c</UnikalusNumeris>
+    <PrekesTipas>NeraTipo</PrekesTipas>
+    <PirkimoKaina>0</PirkimoKaina>
+    <PardavimoKaina>0</PardavimoKaina>
+  </Preke>
+  <Preke>
+    <Pavadimas>kkkkkkkk</Pavadimas>
+    <UnikalusNumeris>d3ca06b3-16ac-461f-b1e3-0aa9e6b84c77</UnikalusNumeris>
+    <PrekesTipas>NeraTipo</PrekesTipas>
+    <PirkimoKaina>0</PirkimoKaina>
+    <PardavimoKaina>0</PardavimoKaina>
+  </Preke>
+  <Preke>
+    <Pavadimas>Pirmapreke</Pavadimas>
+    <UnikalusNumeris>9a61d049-4b1b-49b2-9e19-98737a81319f</UnikalusNumeris>
+    <PrekesTipas>NeraTipo</PrekesTipas>
+    <PirkimoKaina>0</PirkimoKaina>
+    <PardavimoKaina>0</PardavimoKaina>
+  </Preke>
+</ArrayOfPreke>
